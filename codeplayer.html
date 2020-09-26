@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +9,19 @@
 </head>
 
 <style>
-    body
-    {
+    body {
         font-style: sans-serif;
         padding: 0;
         margin: 0px;
         font-size: 20pt;
     }
-    .header
-    {
+
+    .header {
         background-color: rgba(45, 163, 241, 0.377);
         min-height: 50px !important;
     }
-    #logo
-    {
+
+    #logo {
         background-color: green;
         color: white;
         border-radius: 5px;
@@ -31,54 +29,52 @@
         height: 50px !important;
     }
 
-    .togglebutton
-    {
+    .togglebutton {
         background-color: rgba(128, 128, 128, 0.74);
         border-right: none;
-        text-align: center; 
+        text-align: center;
         border-radius: 5px;
         height: 50px;
         padding: 5px 20px;
         margin-left: 10px;
         margin-top: 5px;
     }
-   
-    .button_active
-    {
+
+    .button_active {
         /* border-radius: 5px; */
         background-color: rgb(113, 22, 199);
         color: white;
     }
-    .highlightedbuttoncolor
-    {
+
+    .highlightedbuttoncolor {
         border-radius: 5px;
         background-color: rgba(5, 4, 4, 0.774);
         color: rgba(255, 255, 255, 0.911);
     }
-    #bodycontainer
-    {
+
+    #bodycontainer {
         padding-top: 10px;
         padding-left: 5px;
         padding-right: 5px;
     }
-    textarea
-    {
+
+    textarea {
         resize: none;
         font-size: 15pt;
     }
-    .flexcontainer
-    {
+
+    .flexcontainer {
         display: flex;
     }
-    .text_area_size
-    {
+
+    .text_area_size {
         width: 100%;
         height: 100%;
         border: 2px solid black;
         border-radius: 10px;
     }
-    .panel
-    {
+
+    .panel {
         padding: 0px;
         border: 2px solid rgba(0, 153, 255, 0.5);
         margin: 0px;
@@ -87,21 +83,21 @@
         height: 100% !important;
 
     }
-    .widthheight100
-    {
+
+    .widthheight100 {
         width: 100%;
         height: 100%;
     }
-    .hidden
-    {
+
+    .hidden {
         display: none;
     }
-    iframe
-    {
+
+    iframe {
         width: 48%;
     }
-    #runjs
-    {
+
+    #runjs {
         width: 150px;
         text-align: center;
         border-radius: 10px;
@@ -110,14 +106,14 @@
         color: black;
         background-color: white;
     }
-    #runjs:hover
-    {
+
+    #runjs:hover {
         background-color: rgb(19, 161, 19);
         color: white;
         /* border: 2px solid rgb(15, 211, 113); */
     }
-    .putcenter
-    {
+
+    .putcenter {
         /* margin-left: 20px; */
         float: left;
         position: relative;
@@ -125,44 +121,37 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    .runbuttoncenter
-    {
+
+    .runbuttoncenter {
         padding: 10px;
     }
 
-    @media screen and (max-width: 600px)
-    {
-        body
-        {
+    @media screen and (max-width: 600px) {
+        body {
             zoom: 0.4;
         }
     }
 
-    @media screen and (max-width: 1920px)
-    {
-        #bodycontainer
-        {
+    @media screen and (max-width: 1920px) {
+        #bodycontainer {
             height: 90% !important;
         }
     }
-    @media screen and (max-width: 1500px)
-    {
-        #bodycontainer
-        {
+
+    @media screen and (max-width: 1500px) {
+        #bodycontainer {
             height: 86% !important;
         }
     }
-    @media screen and (max-width: 1000px)
-    {
-        #bodycontainer
-        {
+
+    @media screen and (max-width: 1000px) {
+        #bodycontainer {
             height: 80% !important;
         }
     }
-    @media screen and (min-width: 2000px)
-    {
-        #bodycontainer
-        {
+
+    @media screen and (min-width: 1920px) {
+        #bodycontainer {
             height: 93% !important;
         }
     }
@@ -171,37 +160,38 @@
 <body>
 
     <!-- BOOTSTRAP NAV BAR -->
-      <nav class="navbar navbar-expand-xl navbar-light header">
-            <div class="navbar-brand" id="logo"> WEB SCRIPT RUNNER </div>
+    <nav class="navbar navbar-expand-xl navbar-light header">
+        <div class="navbar-brand" id="logo"> WEB SCRIPT RUNNER </div>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="button_active togglebutton" id="html">
-                        <a> HTML </a>
-                    </li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="button_active togglebutton" id="html">
+                    <a> HTML </a>
+                </li>
 
-                    <li class="togglebutton" id="css">
-                        <a> CSS </a>
-                    </li>
+                <li class="togglebutton" id="css">
+                    <a> CSS </a>
+                </li>
 
-                    <li class="togglebutton" id="javascript">
-                        <a> JavaScript </a>
-                    </li>
+                <li class="togglebutton" id="javascript">
+                    <a> JavaScript </a>
+                </li>
 
-                    <li class="button_active togglebutton" id="output">
-                        <a> Output </a>
-                    </li>
+                <li class="button_active togglebutton" id="output">
+                    <a> Output </a>
+                </li>
 
-                    <li class="runbuttoncenter togglebutton" id="runjs">
-                        <a onclick="runjavascript()"> Run JS</a>
-                    </li>
-                </ul>
-            </div>
-      </nav>
+                <li class="runbuttoncenter togglebutton" id="runjs">
+                    <a onclick="runjavascript()"> Run JS</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <!-- BODY ITEMS -->
     <div id="bodycontainer" class="flexcontainer">
         <div id="htmlpanel" class="panel">
@@ -218,102 +208,68 @@
         </div>
     </div>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    // SET STARTING PANEL WIDTH
-    $(".panel").width("100%");
+        // SET STARTING PANEL WIDTH
+        $(".panel").width("100%");
 
-    // Run the script
-    function runjavascript()
-    {
-        var out_window = document.getElementById("outputcontent");
-        out_window.contentWindow.eval($("#javascriptcontent").val());
-    }
-
-    // Button items hover function
-    //NOW USING BOOTSTRAP NAVBAR 
-
-    $(".togglebutton").hover(
-    function()
-    {
-        if($(this).hasClass("button_active"))
-        {
-           // NO HOVER ALLOWED FOR ACTIVE TABS 
+        // Run the script
+        function runjavascript() {
+            var out_window = document.getElementById("outputcontent");
+            out_window.contentWindow.eval($("#javascriptcontent").val());
         }
-        else
-        {
-            $(this).addClass("highlightedbuttoncolor");
-        }
-    },
-    function()
-    {
-        $(this).removeClass("highlightedbuttoncolor");
-    });
-    
-    var numberofactivepanels = 2;
-    // $(".panel").width(($(window).width()/numberofactivepanels) - 25);
 
-    $(".togglebutton").click(function()
-    {
-        // TOGGLE THE NAV BUTTONS
-        $(this).toggleClass("button_active");
+        // Button items hover function
+        //NOW USING BOOTSTRAP NAVBAR 
 
-        // HIDE AND UNHIDE PANEL WINDOWS
-        var panelid = $(this).attr("id") + "panel";
-        $(`#${panelid}`).toggleClass("hidden");
+        $(".togglebutton").hover(
+            function () {
+                if ($(this).hasClass("button_active")) {
+                    // NO HOVER ALLOWED FOR ACTIVE TABS 
+                }
+                else {
+                    $(this).addClass("highlightedbuttoncolor");
+                }
+            },
+            function () {
+                $(this).removeClass("highlightedbuttoncolor");
+            });
 
-        // NUMBER OF ACTIVE PANELS
-        numberofactivepanels = $(".active").length;
-        // numberofactivepanels = 4 - $(".hidden").length;
+        var numberofactivepanels = 2;
+        // $(".panel").width(($(window).width()/numberofactivepanels) - 25);
 
-        // TRY TO ADJUST WIDTH
-        // var wadjust = 0;
-        // if(numberofactivepanels == 1){wadjust = 95}
-        // else if(numberofactivepanels == 2){wadjust = 45}
-        // else if(numberofactivepanels == 3){wadjust = 32}
-        // else{wadjust = 24};
-        // console.log("active panel: "+ numberofactivepanels);
+        $(".togglebutton").click(function () {
+            // TOGGLE THE NAV BUTTONS
+            $(this).toggleClass("button_active");
 
-        // $(".panel").width(($(window).width()/numberofactivepanels) - wadjust);
+            // HIDE AND UNHIDE PANEL WINDOWS
+            var panelid = $(this).attr("id") + "panel";
+            $(`#${panelid}`).toggleClass("hidden");
 
-        // var panels = document.getElementsByClassName("panel");
-        // panels.forEach(element => {
-        //     panels[element].addClass("widthheight100");            
-        // });
-        
-        // $(".panel").addClass("widthheight100");
-    });
+            // NUMBER OF ACTIVE PANELS
+            numberofactivepanels = $(".active").length;
+            // numberofactivepanels = 4 - $(".hidden").length;
 
-    
-    // SETTING THE PANEL HEIGHTS DOESNT WORK WELL FOR VARIABLE HEIGHT
-    // $("#bodycontainer").height($(window).height() - $(".header").height() - 50);
 
-    // $(window).resize( function()
-    // {        
-    //     $("#bodycontainer").height($(window).height() - $(".header").height()-50)
-        
-    //     // $(".panel").height("90%");
-    // });
+            // DEFAULT PUTPUT
+            $("#outputcontent").contents().find("html").html("<html><head><style>" + $("#csscontent").val() + "</style><//head><body>" + $("#htmlcontent").val() + "<//body><//html>");
 
-    // DEFAULT PUTPUT
-    $("#outputcontent").contents().find("html").html("<html><head><style>" + $("#csscontent").val()+ "</style><//head><body>"+ $("#htmlcontent").val() + "<//body><//html>");
-
-    $("textarea").on("change keyup paste", function()
-    {
-        console.log("changed");
-        $("#outputcontent").contents().find("html").html("<html>" + 
-                                                "<head>" +
-                                                "<style>" +
-                                                $("#csscontent").val() +
-                                                "</style>" +    //     /s is not a special cahracted while /h and /b are.
-                                                "<//head>" +    //      so we need to escape them using //
-                                                "<body>" + 
-                                                $("#htmlcontent").val() +
-                                                "<//body>" +
-                                                "<//html>"); 
-    });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+            $("textarea").on("change keyup paste", function () {
+                console.log("changed");
+                $("#outputcontent").contents().find("html").html("<html>" +
+                    "<head>" +
+                    "<style>" +
+                    $("#csscontent").val() +
+                    "</style>" +    //     /s is not a special cahracted while /h and /b are.
+                    "<//head>" +    //      so we need to escape them using //
+                    "<body>" +
+                    $("#htmlcontent").val() +
+                    "<//body>" +
+                    "<//html>");
+            });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>
