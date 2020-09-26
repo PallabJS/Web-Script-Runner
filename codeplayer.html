@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Code Player</title>
+    <title> Web Script Runner </title>
 
-    <script src="jquery.js" type="text/javascript"></script>
-    <script src="jquery-ui/jquery-ui.js"></script>
-    <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+    <script src="/scripts/jquery.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 
 <style>
@@ -19,75 +17,80 @@
         margin: 0px;
         font-size: 20pt;
     }
+    .header
+    {
+        background-color: rgba(45, 163, 241, 0.377);
+        min-height: 50px !important;
+    }
     #logo
     {
-        float: left;
-        /* padding-top: 15px; */
-        margin-left: 50px;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 30px;
+        height: 50px !important;
     }
-    #header
-    {
-        /* border: 1px solid rgb(235, 10, 10); */
-        width: 100%;
-        /* min-height: 50px; */
-        background-color: rgba(107, 174, 219, 0.438);
-        /* padding: 5px; */
-    }
-    #buttoncontainer
-    {
-        /* border: 2px rgb(4, 0, 255) solid; */
-        /* margin: 0 auto; */
-        width: 100%;
-        height: 50px;
-        text-align: center;
 
-    }
     .togglebutton
     {
-        float: left;
-        /* border: 2px solid rgb(15, 211, 113); */
+        background-color: rgba(128, 128, 128, 0.74);
         border-right: none;
-        width: 10%;
-        height: 100%;
-        text-align: center;
-    }
-    #html
-    {
-        margin-left: 50px;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-    }
-    #output
-    {
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-    }
-    .active
-    {
+        text-align: center; 
         border-radius: 5px;
-        background-color: rgba(14, 150, 240, 0.678);
+        height: 50px;
+        padding: 5px 20px;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+   
+    .button_active
+    {
+        /* border-radius: 5px; */
+        background-color: rgb(113, 22, 199);
+        color: white;
     }
     .highlightedbuttoncolor
     {
         border-radius: 5px;
-        background-color: white;
+        background-color: rgba(5, 4, 4, 0.774);
+        color: rgba(255, 255, 255, 0.911);
     }
     #bodycontainer
     {
         padding-top: 10px;
-        padding-left: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
     textarea
     {
-        /* margin-left: 10px; */
-        width: 48%;
         resize: none;
         font-size: 15pt;
-        float: left;
+    }
+    .flexcontainer
+    {
+        display: flex;
+    }
+    .text_area_size
+    {
+        width: 100%;
+        height: 100%;
+        border: 2px solid black;
+        border-radius: 10px;
     }
     .panel
     {
-        float: left;
+        padding: 0px;
+        border: 2px solid rgba(0, 153, 255, 0.5);
+        margin: 0px;
+        flex: 1;
+        border-radius: 10px;
+        height: 100% !important;
+
+    }
+    .widthheight100
+    {
+        width: 100%;
+        height: 100%;
     }
     .hidden
     {
@@ -124,77 +127,193 @@
     }
     .runbuttoncenter
     {
-        margin-left: 20px;
-        position: relative;
-        float: left;
-        top: 50%;
-        transform: translate(0%, -50%); 
+        padding: 10px;
+    }
+
+    @media screen and (max-width: 600px)
+    {
+        body
+        {
+            zoom: 0.4;
+        }
+    }
+
+    @media screen and (max-width: 1920px)
+    {
+        #bodycontainer
+        {
+            height: 90% !important;
+        }
+    }
+    @media screen and (max-width: 1500px)
+    {
+        #bodycontainer
+        {
+            height: 86% !important;
+        }
+    }
+    @media screen and (max-width: 1000px)
+    {
+        #bodycontainer
+        {
+            height: 80% !important;
+        }
+    }
+    @media screen and (min-width: 2000px)
+    {
+        #bodycontainer
+        {
+            height: 93% !important;
+        }
     }
 </style>
 
 <body>
-    <div id="header">
 
-        <div id="buttoncontainer">
-            <div style="margin-left: 30px; float: left; position: relative; top: 50%; "><b><div class="putcenter">WEB SCRIPT RUNNER</div></b></div>
-            <div class="togglebutton active" id="html"><div class="putcenter">HTML</div></div>
-            <div class="togglebutton" id="css"><div class="putcenter">CSS</div></div>
-            <div class="togglebutton" id="javascript"><div class="putcenter">JAVASCRIPT</div></div>
-            <div class="togglebutton active" id="output"><div class="putcenter">OUTPUT</div></div>
-            <button class="runbuttoncenter" id="runjs" onclick="runjavascript()">Run JavaScript</button> 
+    <!-- BOOTSTRAP NAV BAR -->
+      <nav class="navbar navbar-expand-xl navbar-light header">
+            <div class="navbar-brand" id="logo"> WEB SCRIPT RUNNER </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="button_active togglebutton" id="html">
+                        <a> HTML </a>
+                    </li>
+
+                    <li class="togglebutton" id="css">
+                        <a> CSS </a>
+                    </li>
+
+                    <li class="togglebutton" id="javascript">
+                        <a> JavaScript </a>
+                    </li>
+
+                    <li class="button_active togglebutton" id="output">
+                        <a> Output </a>
+                    </li>
+
+                    <li class="runbuttoncenter togglebutton" id="runjs">
+                        <a onclick="runjavascript()"> Run JS</a>
+                    </li>
+                </ul>
+            </div>
+      </nav>
+    <!-- BODY ITEMS -->
+    <div id="bodycontainer" class="flexcontainer">
+        <div id="htmlpanel" class="panel">
+            <textarea id="htmlcontent" class="text_area_size">&ltp&gt Write html script here......&ltp&gt</textarea>
+        </div>
+        <div id="csspanel" class="panel hidden">
+            <textarea id="csscontent" class="text_area_size">p { color: green; font-size: 20pt}</textarea>
+        </div>
+        <div id="javascriptpanel" class="panel hidden">
+            <textarea id="javascriptcontent" class="text_area_size">Write Javascript here......</textarea>
+        </div>
+        <div id="outputpanel" class="panel">
+            <iframe id="outputcontent" class="text_area_size"></iframe>
         </div>
     </div>
 
-    <div id="bodycontainer">
-        <textarea id="htmlpanel" class="panel">&ltp&gt Write html script here......&ltp&gt</textarea>
-        <textarea id="csspanel" class="panel hidden">p { color: green; font-size: 50pt}</textarea>
-        <textarea id="javascriptpanel" class="panel hidden">Write Javascript here......</textarea>
-
-        <iframe id="outputpanel" class="panel "></iframe>
-    </div>
-
-
- 
-
 <script type="text/javascript">
+
+    // SET STARTING PANEL WIDTH
+    $(".panel").width("100%");
+
+    // Run the script
     function runjavascript()
     {
-        document.getElementById("outputpanel").contentWindow.eval($("#javascriptpanel").val()); 
+        var out_window = document.getElementById("outputcontent");
+        out_window.contentWindow.eval($("#javascriptcontent").val());
     }
-    $(".togglebutton").hover(function()
+
+    // Button items hover function
+    //NOW USING BOOTSTRAP NAVBAR 
+
+    $(".togglebutton").hover(
+    function()
     {
-        $(this).addClass("highlightedbuttoncolor");
-    },  function()
+        if($(this).hasClass("button_active"))
+        {
+           // NO HOVER ALLOWED FOR ACTIVE TABS 
+        }
+        else
+        {
+            $(this).addClass("highlightedbuttoncolor");
+        }
+    },
+    function()
     {
         $(this).removeClass("highlightedbuttoncolor");
     });
     
     var numberofactivepanels = 2;
-    $(".panel").width(($(window).width()/numberofactivepanels) - 25);
+    // $(".panel").width(($(window).width()/numberofactivepanels) - 25);
 
     $(".togglebutton").click(function()
     {
-        $(this).toggleClass("active");
-        $(this).removeClass("highlightedbuttoncolor");
+        // TOGGLE THE NAV BUTTONS
+        $(this).toggleClass("button_active");
+
+        // HIDE AND UNHIDE PANEL WINDOWS
         var panelid = $(this).attr("id") + "panel";
-        $("#" + panelid).toggleClass("hidden");
-        numberofactivepanels = 4 - $(".hidden").length;
-        var wadjust = 0;
-        if(numberofactivepanels == 2){wadjust = 25}
-        else if(numberofactivepanels == 3){wadjust = 20}
-        else{wadjust = 15};
-        console.log("active panel: "+ numberofactivepanels);
-        $(".panel").width(($(window).width()/numberofactivepanels) - wadjust);
+        $(`#${panelid}`).toggleClass("hidden");
+
+        // NUMBER OF ACTIVE PANELS
+        numberofactivepanels = $(".active").length;
+        // numberofactivepanels = 4 - $(".hidden").length;
+
+        // TRY TO ADJUST WIDTH
+        // var wadjust = 0;
+        // if(numberofactivepanels == 1){wadjust = 95}
+        // else if(numberofactivepanels == 2){wadjust = 45}
+        // else if(numberofactivepanels == 3){wadjust = 32}
+        // else{wadjust = 24};
+        // console.log("active panel: "+ numberofactivepanels);
+
+        // $(".panel").width(($(window).width()/numberofactivepanels) - wadjust);
+
+        // var panels = document.getElementsByClassName("panel");
+        // panels.forEach(element => {
+        //     panels[element].addClass("widthheight100");            
+        // });
+        
+        // $(".panel").addClass("widthheight100");
     });
 
-    $(".panel").height($(window).height() - $("#header").height()-30);
-    $("iframe").contents().find("html").html("<html><head><style>" + $("#csspanel").val()+ "</style><//head><body>"+ $("#htmlpanel").val() + "<//body><//html>");
+    
+    // SETTING THE PANEL HEIGHTS DOESNT WORK WELL FOR VARIABLE HEIGHT
+    // $("#bodycontainer").height($(window).height() - $(".header").height() - 50);
+
+    // $(window).resize( function()
+    // {        
+    //     $("#bodycontainer").height($(window).height() - $(".header").height()-50)
+        
+    //     // $(".panel").height("90%");
+    // });
+
+    // DEFAULT PUTPUT
+    $("#outputcontent").contents().find("html").html("<html><head><style>" + $("#csscontent").val()+ "</style><//head><body>"+ $("#htmlcontent").val() + "<//body><//html>");
 
     $("textarea").on("change keyup paste", function()
     {
-        $("iframe").contents().find("html").html("<html><head><style>" + $("#csspanel").val()+ "</style><//head><body>"+ $("#htmlpanel").val() + "<//body><//html>");   
+        console.log("changed");
+        $("#outputcontent").contents().find("html").html("<html>" + 
+                                                "<head>" +
+                                                "<style>" +
+                                                $("#csscontent").val() +
+                                                "</style>" +    //     /s is not a special cahracted while /h and /b are.
+                                                "<//head>" +    //      so we need to escape them using //
+                                                "<body>" + 
+                                                $("#htmlcontent").val() +
+                                                "<//body>" +
+                                                "<//html>"); 
     });
 </script>
-    
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
